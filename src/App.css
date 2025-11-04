@@ -31,4 +31,7 @@ body {
   }
   #inst {
     color: rgb(28, 196, 199);
+  } 
+  #won {
+    font-size: 100px;
   }

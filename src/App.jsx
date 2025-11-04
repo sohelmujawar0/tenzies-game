@@ -1,9 +1,9 @@
 import Die from "./components/Die"
-import { useState, useEffect } from "react"
+import { useState, /*useEffect*/ } from "react"
 import Confetti from "react-confetti";
 export default  function App(){
   const [dice,Setdice] = useState(generateAllNewDice)
-   const [seconds, setSeconds] = useState(0);
+  //  const [seconds, setSeconds] = useState(0);
    function generateAllNewDice() {
         return new Array(10)
             .fill(0)
@@ -29,23 +29,21 @@ export default  function App(){
           return <Die value={old.value} fun={Select} Held={old.isHeld} id1={old.id} />
      })
 
-    useEffect(() => {
-    const timer = setInterval(() => {
-      setSeconds(prev => prev + 1);
-    }, 1000);
-
-    // Cleanup when component unmounts
-    return () => clearInterval(timer);
-  }, [gamewon]);
- console.log(seconds)
+//     useEffect(() => {
+//     const timer = setInterval(() => {
+//       setSeconds(prev => prev + 1);
+//     }, 1000);
+//     return () => clearInterval(timer);
+//   }, [gamewon]);
+//  console.log(seconds)
  return <>
+   {gamewon && <h1 id="won" style={{color:"red"}} >great you won the game</h1>}
     {gamewon && <Confetti/>}
       <h1 id="inst">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</h1>
    <div id="dics" >
     {elements}
     <button id="Roll" onClick={Roll_dice} >{ gamewon? "new game" :"Roll"}</button>
  </div>
- <h1>{seconds}</h1>
  {dice.every((oldvv)=>oldvv.isHeld)  && !dice.every(die => die.value === dice[0].value)? <h1>values are not same please check again and try</h1>: null }
   </>
 }
