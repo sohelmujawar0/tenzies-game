@@ -37,13 +37,19 @@ export default  function App(){
 //   }, [gamewon]);
 //  console.log(seconds)
  return <>
-   {gamewon && <h1 id="won" style={{color:"red"}} >great you won the game</h1>}
+   {gamewon && <h1 className="text-[100px]" style={{color:"red"}} >great you won the game</h1>}
     {gamewon && <Confetti/>}
-      <h1 id="inst">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</h1>
-   <div id="dics" >
+      <h1 className="text-[rgb(193,248,15)] mb-2.5 text-3xl ">Roll until all dice are the same. 
+        Click each die to freeze it at its current value between rolls.</h1>
+   <div id="dics" className="grid grid-cols-[100px_100px_100px_100px_100px] 
+   grid-rows-[50px_50px] justify-center content-center gap-[10px]" >
     {elements}
-    <button id="Roll" onClick={Roll_dice} >{ gamewon? "new game" :"Roll"}</button>
+    <button className="relative left-[150px] w-[200px] h-[50px]
+     rounded-[10px] bg-blue-500 text-white"
+    onClick={Roll_dice} >{ gamewon? "new game" :"Roll"}</button>
  </div>
- {dice.every((oldvv)=>oldvv.isHeld)  && !dice.every(die => die.value === dice[0].value)? <h1>values are not same please check again and try</h1>: null }
+ {dice.every((oldvv)=>oldvv.isHeld)  && 
+ !dice.every(die => die.value === dice[0].value)?
+  <h1 className="text-3xl" >values are not same please check again and try</h1>: null }
   </>
-}
+} 
