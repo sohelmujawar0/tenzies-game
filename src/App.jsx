@@ -45,7 +45,7 @@ export default  function App(){
    grid-rows-[50px_50px] justify-center content-center gap-2.5" >
     {elements}
     <button className="relative left-[150px] w-[200px] h-[50px]
-     rounded-[10px] bg-blue-500 text-white"
+     rounded-[10px] bg-blue-500 text-white cursor-pointer "
     onClick={Roll_dice} >{ gamewon? "new game" :"Roll"}</button>
  </div>
  {dice.every((oldvv)=>oldvv.isHeld)  && 
