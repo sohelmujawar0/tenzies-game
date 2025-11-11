@@ -42,7 +42,7 @@ export default  function App(){
       <h1 className="text-[rgb(193,248,15)] mb-2.5 text-3xl ">Roll until all dice are the same. 
         Click each die to freeze it at its current value between rolls.</h1>
    <div id="dics" className="grid grid-cols-[100px_100px_100px_100px_100px] 
-   grid-rows-[50px_50px] justify-center content-center gap-[10px]" >
+   grid-rows-[50px_50px] justify-center content-center gap-2.5" >
     {elements}
     <button className="relative left-[150px] w-[200px] h-[50px]
      rounded-[10px] bg-blue-500 text-white"
